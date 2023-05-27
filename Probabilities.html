@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fracht-Aufgabe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fracht-Aufgabe:</h1>
+    <p>A large freight elevator can transport a maximum of 9800 kg.</p>
+    <p>Suppose a load of cargo containing boxes must be transported via the elevator.</p>
+    <p>Experience has shown that the weight of boxes of this type of cargo follows a distribution with mean µ = 205 and standard deviation s = 15 kg.</p>
+    <p><strong>a) Determine the maximum number of boxes which can be loaded and transported with a probability of at least 90%.</strong></p>
+    
+    <pre><code>
+# R Code to solve the problem
+# Given values
+capacity <- 9800
+mu <- 205
+s <- 15
+
+# Desired probability (at least 90%)
+desired_prob <- 0.9
+
+# Calculate the z-score corresponding to the desired probability
+z_score <- qnorm(desired_prob)
+
+# Calculate the maximum number of boxes
+max_boxes <- floor((capacity - mu) / (s / sqrt(z_score^2)))
+
+# Print the result
+cat("The maximum number of boxes that can be loaded and transported with a probability of at least 90% is:", max_boxes)
+    </code></pre>
+</body>
+</html>
+
